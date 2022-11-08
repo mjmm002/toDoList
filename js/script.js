@@ -3,9 +3,6 @@ createBtn.addEventListener("click", createTodo);
 let getDate = document.querySelector("#wew")
 
 
-getDate.innerHTML = 
-console.log(wew.innerHTML)
-
 function createTodo(){
     let createListName = document.querySelector("#floatingInput").value;
     let itemList = document.createElement("div")
@@ -88,14 +85,18 @@ function createTodo(){
         itemListContent.appendChild(saveBtn);
         itemListContent.removeChild(itemTitle);
         itemListContent.appendChild(updateListName);
-        itemList.appendChild(cancelBtn);
         itemList.removeChild(itemDate);
+        itemList.appendChild(cancelBtn);
+        
 
         cancelBtn.addEventListener("click", cancelUpdate)
         saveBtn.addEventListener("click", saveValue);
 
         function saveValue(){
             let text = "Are you sure you want to save Changes?"
+            updateBtn.removeAttribute("disabled", "");
+            itemList.removeChild(cancelBtn);
+            itemList.appendChild(itemDate);
             if (confirm(text) == true){
                 let updateTitle = updateListName.value;
                 itemTitle.innerHTML = updateTitle;
@@ -104,26 +105,21 @@ function createTodo(){
                 itemListContent.appendChild(itemTitle);
                 itemListContent.removeChild(saveBtn);
                 itemListContent.removeChild(updateListName)
-                itemList.removeChild(cancelBtn);
-                itemDate = dFormat.format(date)+ " " + dtFormat.format(time);
-                itemList.appendChild(itemDate);
-                
-                updateBtn.removeAttribute("disabled", "")
             } else{
                 text = "Cancelled";
                 itemListContent.appendChild(removeBtn);
                 itemListContent.appendChild(itemTitle);
                 itemListContent.removeChild(saveBtn);
-                itemListContent.removeChild(updateListName)                
+                itemListContent.removeChild(updateListName);                
             }
             alert(text);
         }
 
         function cancelUpdate(){
-            itemListContent.appendChild(removeBtn);
-            itemListContent.appendChild(itemTitle);
             itemListContent.removeChild(saveBtn);
             itemListContent.removeChild(updateListName);
+            itemListContent.appendChild(removeBtn);
+            itemListContent.appendChild(itemTitle);
             itemList.removeChild(cancelBtn);
             itemList.appendChild(itemDate);
             updateBtn.removeAttribute("disabled", "")
