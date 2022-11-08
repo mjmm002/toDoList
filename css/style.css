@@ -1,0 +1,29 @@
+.container {
+    background-color: #fff;
+    box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
+}
+input{
+    font-weight: 700;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing:border-box;
+}
+.btn-update, .btn-del {
+    outline: none;
+    border: none;
+    
+}
+#createBtn{
+    height: 100%;
+}
+
+.item-row{
+    background-color: #34568B;
+    box-shadow: 0px -1px 10px -4px rgba(0,0,0,0.75);
+    color: #fff;
+}
+
+media(min-width){
+
+}
