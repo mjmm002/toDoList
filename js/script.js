@@ -4,6 +4,7 @@ let getDate = document.querySelector("#wew");
 let toDoList = document.querySelector("#toDoList");
 
 
+
 let dFormat = new Intl.DateTimeFormat("en-US", {
 
     year: "numeric",
@@ -51,11 +52,19 @@ showTime();
 showDate();
 
 function limitList(){
+    let rmvBtn = document.querySelectorAll(".btn-del");
     if (toDoList.childElementCount >= 5 ){
         createBtn.disabled = true;
     } else if (toDoList.childElementCount < 5){
         createBtn.disabled = false;
     }
+
+    if (toDoList.childElementCount <= 1){
+        rmvBtn[0].disabled = true;
+    } else if(toDoList.childElementCount > 1){
+        rmvBtn[0].disabled = false;
+    }
+
 }
 
 function createTodo(){
