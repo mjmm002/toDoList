@@ -1,10 +1,22 @@
 let createBtn = document.querySelector("#createBtn");
 createBtn.addEventListener("click", createTodo);
-let getDate = document.querySelector("#wew")
+let getDate = document.querySelector("#wew");
+let toDoList = document.querySelector("#toDoList");
 
+
+
+
+function limitList(){
+    if (toDoList.childElementCount >= 5 ){
+        createBtn.disabled = true;
+    } else if (toDoList.childElementCount < 5){
+        createBtn.disabled = false;
+    }
+}
 
 function createTodo(){
     let createListName = document.querySelector("#floatingInput").value;
+    let createListValue = document.querySelector("#floatingInput");
     let itemList = document.createElement("div")
     let itemListContent = document.createElement("div")
     let updateBtn = document.createElement("button");
@@ -13,7 +25,7 @@ function createTodo(){
     let itemDate = document.createElement("small");
 
     //createItem(div) attributes
-    itemList.classList = "border border-dark rounded item-row p-2 my-4 d-flex justify-content-between"
+    itemList.classList = "rounded item-row p-2 my-4 d-flex justify-content-between"
     itemListContent.classList = "d-flex"
 
     //update Button
@@ -44,10 +56,6 @@ function createTodo(){
      
      let date = new Date()
 
-
-
-
-
     //set todo time
     itemDate.innerHTML = dFormat.format(date)+ " " + dtFormat.format(time);
     itemDate.style.fontSize = ".5rem"
@@ -64,6 +72,10 @@ function createTodo(){
     updateBtn.addEventListener("click", updateList);
     removeBtn.addEventListener("click", removeValue);
 
+    createListValue.value = "";
+    limitList()
+
+    
     function updateList(){
         let saveBtn = document.createElement("button");
         let updateListName = document.createElement("input");
@@ -106,7 +118,6 @@ function createTodo(){
                 itemListContent.removeChild(saveBtn);
                 itemListContent.removeChild(updateListName)
             } else{
-                text = "Cancelled";
                 itemListContent.appendChild(removeBtn);
                 itemListContent.appendChild(itemTitle);
                 itemListContent.removeChild(saveBtn);
@@ -126,14 +137,18 @@ function createTodo(){
         }
     }
     function removeValue(){
+        
+
         let text = "Are you sure you want to delete " + itemTitle.innerHTML + "?"
         if (confirm(text) == true){
             itemListContent.parentNode.remove()
-            text = "Successfully Deleted"
         } else{
-            text = "Cancelled Successfully";              
+            return false;      
         }
-        alert(text);
+        limitList()
+        
+        
+        
     }
     
 }
