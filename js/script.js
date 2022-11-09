@@ -96,7 +96,7 @@ function createTodo(){
         //set todo name
         itemTitle.innerHTML = createListName;
         itemTitle.style.fontSize = "1.2rem"
-        itemTitle.classList= "pb-1"
+        itemTitle.classList= "pb-1 overflow-hidden"
 
         //get the current time
         let dtFormat = new Intl.DateTimeFormat("en-US", {
