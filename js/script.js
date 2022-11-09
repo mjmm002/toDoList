@@ -111,7 +111,7 @@ function createTodo(){
          
         //set todo time
         itemDate.innerHTML = dFormat.format(date)+ " " + dtFormat.format(time);
-        itemDate.style.fontSize = ".5rem"
+        itemDate.style.fontSize = ".8rem"
         itemDate.classList = "d-none d-sm-block"
         
         //Add TodoList
