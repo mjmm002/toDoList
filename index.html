@@ -5,12 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Michael's Todo-List</title>
     <link rel="stylesheet" href="css/style.css">
+    
+    <script src="https://kit.fontawesome.com/e49652cb8a.js" crossorigin="anonymous"></script>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   </head>
   <body>
     <div class="container col-lg-5 border rounded">
-        <div class="d-flex justify-content-center">
-            <h1>Michael's Todo-List</h1>
+        <div class="d-flex justify-content-center align-items-center my-1 flex-column" id="headerTitle">
+            <h1 class="mt-1"><i class="fa-regular fa-rectangle-list mx-2"></i>Michael's Todo-List</h1>
+            <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+            <div id="MyDateDisplay" class="date mb-1" onload = "showDate()"></div>
         </div>
         <div class="row justify-content-center align-items-center">
             <form action="#" method="#">
@@ -28,10 +33,7 @@
                 
             </div>
         </div>
-
     </div>
-    
-    
     <script src="js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
