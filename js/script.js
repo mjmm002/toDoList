@@ -71,17 +71,17 @@ function createTodo(){
         alert("Please Input a task");
     } else{
         //createItem(div) attributes
-        itemList.classList = "rounded item-row p-2 my-4 d-flex justify-content-between"
+        itemList.classList = "rounded item-row p-2 mb-4 d-flex justify-content-between"
         itemListContent.classList = "d-flex"
 
         //update Button
         updateBtn.type = "button";
-        updateBtn.innerHTML = "Update"
+        updateBtn.innerHTML = `<i class="fa-solid fa-pen px-sm-0 px-1"></i><span class="d-sm-block d-none">Update</span>`
         updateBtn.classList = "badge text-bg-info btn-update mx-1"
         
         //Remove Button
         removeBtn.type = "button";
-        removeBtn.innerHTML = "Delete"
+        removeBtn.innerHTML = `<i class="fa-solid fa-trash-can px-sm-0 px-1"></i><span class="d-sm-block d-none">Delete</span>`
         removeBtn.classList = "badge text-bg-danger btn-del mx-1 me-3"
 
         //set todo name
@@ -130,11 +130,11 @@ function createTodo(){
             updateListName.classList = "form-control"
             updateListName.maxLength = "15"
 
-            saveBtn.innerHTML = "Save"
-            saveBtn.classList = "badge text-bg-primary btn-update mx-1 me-3";
+            saveBtn.innerHTML = `<i class="fa-solid fa-check px-sm-0 px-1"></i><span class="d-sm-block d-none">Save</span>`
+            saveBtn.classList = "badge text-bg-primary btn-update mx-1 me-sm-3";
             
             cancelBtn.classList = "badge text-bg-secondary btn-update"
-            cancelBtn.innerHTML = "cancel"
+            cancelBtn.innerHTML = `<i class="fa-solid fa-xmark px-sm-0 px-1"></i><span class="d-sm-block d-none">Cancel</span>`
             
             updateBtn.setAttribute("disabled", "");
             itemListContent.removeChild(removeBtn);

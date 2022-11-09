@@ -27,6 +27,11 @@ input{
     margin: 8px 0;
     box-sizing:border-box;
 }
+
+.btnPrimary{
+    height: auto;
+    font-size: larger !important;
+}
 .btn-update, .btn-del {
     outline: none;
     border: none;
