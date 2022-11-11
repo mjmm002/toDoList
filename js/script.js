@@ -55,13 +55,13 @@ function limitList(){
     let rmvBtn = document.querySelectorAll(".btn-del");
     if (toDoList.childElementCount >= 5 ){
         createBtn.disabled = true;
-    } else if (toDoList.childElementCount < 5){
+    } else{
         createBtn.disabled = false;
     }
 
     if (toDoList.childElementCount <= 1){
         rmvBtn[0].disabled = true;
-    } else if(toDoList.childElementCount > 1){
+    } else{
         rmvBtn[0].disabled = false;
     }
 
@@ -152,6 +152,7 @@ function createTodo(){
             itemListContent.appendChild(updateListName);
             itemList.removeChild(itemDate);
             itemList.appendChild(cancelBtn);
+            createBtn.disabled = true;
             
 
             cancelBtn.addEventListener("click", cancelUpdate)
@@ -162,6 +163,7 @@ function createTodo(){
                 updateBtn.removeAttribute("disabled", "");
                 itemList.removeChild(cancelBtn);
                 itemList.appendChild(itemDate);
+                createBtn.disabled = false;
                 if (confirm(text) == true){
                     let updateTitle = updateListName.value;
                     itemTitle.innerHTML = updateTitle;
@@ -186,6 +188,8 @@ function createTodo(){
                 itemList.removeChild(cancelBtn);
                 itemList.appendChild(itemDate);
                 updateBtn.removeAttribute("disabled", "")
+                createBtn.disabled = false;
+
             }
         }
         function removeValue(){
